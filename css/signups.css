@@ -1,0 +1,206 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+
+  /* Location of the image */
+  background-image: url(../images/bg.png);
+
+  /* Background image is centered vertically and horizontally at all times */
+  background-position: center center;
+
+  /* Background image doesn't tile */
+  background-repeat: no-repeat;
+
+  /* Background image is fixed in the viewport so that it doesn't move when
+the content's height is greater than the image's height */
+  background-attachment: fixed;
+
+  /* This is what makes the background image rescale based
+on the container's size */
+  background-size: cover;
+}
+
+/* Flex box for PSU records header */
+img {
+  border-radius: 50%;
+  margin-right: 20px;
+  margin-top: 15px;
+}
+
+.mains {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.boxs:nth-child(1) {
+  height: 200px;
+  width: 200px;
+}
+.boxs:nth-child(2) {
+  height: 100px;
+  width: 1700px;
+  border-radius: 1em;
+  text-align: center;
+  color: #1d1b31;
+  font-family: Source Sans Pro;
+  font-weight: 600;
+  font-size: 5vw;
+  margin-top: 25px;
+}
+.boxs:nth-child(3) {
+  height: 200px;
+  width: 200px;
+}
+
+/* LOGIN BOX FLEX BOX */
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.box:nth-child(1) {
+  height: 200px;
+  width: 200px;
+}
+.box:nth-child(2) {
+  background: white;
+  padding: 30px 50px 30px 50px;
+  text-align: center;
+  width: 900px;
+  height: 550px;
+  align-content: center;
+
+  border-radius: 1em;
+}
+.box:nth-child(3) {
+  height: 200px;
+  width: 200px;
+}
+
+h2 {
+  color: #1d1b31;
+}
+span.name {
+  color: #1d1b31;
+  font-weight: 600;
+  font-size: 23px;
+}
+span.num {
+  color: #1d1b31;
+  font-weight: 600;
+  font-size: 23px;
+}
+span.email {
+  color: #1d1b31;
+  font-weight: 600;
+  font-size: 23px;
+}
+span.pass {
+  color: #1d1b31;
+  font-weight: 600;
+  font-size: 23px;
+}
+span.confirm {
+  color: #1d1b31;
+  font-weight: 600;
+  font-size: 23px;
+}
+span.office {
+  color: #1d1b31;
+  font-weight: 600;
+  font-size: 23px;
+}
+
+input.first[type="text"] {
+  width: 50%;
+  padding: 5px 20px;
+  margin: 25px 0px 0px 10px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 1em;
+  box-sizing: border-box;
+}
+input.sec[type="text"] {
+  width: 50%;
+  padding: 5px 20px;
+  margin: 25px 105px 0px 10px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 1em;
+  box-sizing: border-box;
+}
+input.third[type="text"] {
+  width: 50%;
+  padding: 5px 20px;
+  margin: 25px 40px 0px 10px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 1em;
+  box-sizing: border-box;
+}
+input.first[type="password"] {
+  width: 50%;
+  padding: 5px 20px;
+  margin: 25px 30px 25px 10px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 1em;
+  box-sizing: border-box;
+}
+input.sec[type="password"] {
+  width: 50%;
+  padding: 5px 20px;
+  margin: 0px 120px 25px 10px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 1em;
+  box-sizing: border-box;
+}
+
+select[id="office"] {
+  width: 50%;
+  padding: 5px 20px;
+  margin: 8px 92px 0px 10px;
+  font-size: 19px;
+  border-radius: 1em;
+  cursor: pointer;
+}
+
+input[type="submit"] {
+  width: 50%;
+  background: #1d1b31;
+  color: white;
+  padding: 5px 20px;
+  margin: 8px 0px 20px 85px;
+  font-size: 19px;
+  border: 2px solid #ffc68c;
+  border-radius: 1em;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background: #ffc68c;
+  color: #1d1b31;
+}
+p.error {
+  background: #df7676;
+  color: #a94442;
+  padding: 10px;
+  width: 95%;
+  border-radius: 5px;
+  margin: 20px auto;
+}
+
+.error {
+  background: #f8bdc2;
+  font-size: 15px;
+  color: #bb5d65;
+
+  border-radius: 0.3em;
+}
+.error .fa-exclamation-triangle {
+  color: #bb5d65;
+}

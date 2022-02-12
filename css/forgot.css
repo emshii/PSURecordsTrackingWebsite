@@ -1,0 +1,132 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+
+  /* Location of the image */
+  background-image: url(../images/bg.png);
+
+  /* Background image is centered vertically and horizontally at all times */
+  background-position: center center;
+
+  /* Background image doesn't tile */
+  background-repeat: no-repeat;
+
+  /* Background image is fixed in the viewport so that it doesn't move when
+the content's height is greater than the image's height */
+  background-attachment: fixed;
+
+  /* This is what makes the background image rescale based
+on the container's size */
+  background-size: cover;
+}
+
+/* Flex box for PSU records header */
+img {
+  border-radius: 50%;
+  margin-right: 20px;
+  margin-top: 15px;
+}
+
+.mains {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.boxs:nth-child(1) {
+  height: 200px;
+  width: 200px;
+}
+.boxs:nth-child(2) {
+  height: 200px;
+  width: 1700px;
+  border-radius: 1em;
+  text-align: center;
+  color: #1d1b31;
+  font-family: Source Sans Pro;
+  font-weight: 600;
+  font-size: 5vw;
+  margin-top: 25px;
+}
+.boxs:nth-child(3) {
+  height: 200px;
+  width: 200px;
+}
+
+/* LOGIN BOX FLEX BOX */
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.box:nth-child(1) {
+  height: 200px;
+  width: 200px;
+}
+.box:nth-child(2) {
+  background: white;
+
+  padding: 30px 50px 30px 50px;
+  text-align: center;
+
+  width: 430px;
+  height: 400px;
+  align-content: center;
+
+  margin-top: 5px;
+  border-radius: 1em;
+}
+.box:nth-child(3) {
+  height: 200px;
+  width: 200px;
+}
+
+h2 {
+  color: #1d1b31;
+}
+input[type="text"] {
+  width: 100%;
+  padding: 5px 20px;
+  margin: 25px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 1em;
+  box-sizing: border-box;
+}
+input[type="password"] {
+  width: 100%;
+  padding: 5px 20px;
+  margin: 0px 0px 25px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 1em;
+  box-sizing: border-box;
+}
+input[type="submit"] {
+  background: #1d1b31;
+  color: white;
+  padding: 5px 20px;
+  margin: 8px 0px 20px 0px;
+  font-size: 19px;
+  border: 2px solid #ffc68c;
+  border-radius: 1em;
+  cursor: pointer;
+  width: 100%;
+}
+
+input[type="submit"]:hover {
+  background: #ffc68c;
+  color: #1d1b31;
+}
+.error {
+  background: #f8bdc2;
+  font-size: 15px;
+  color: #bb5d65;
+
+  border-radius: 0.3em;
+}
+.error .fa-exclamation-triangle {
+  color: #bb5d65;
+}
