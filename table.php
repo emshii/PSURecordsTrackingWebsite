@@ -398,7 +398,7 @@ include 'connection/dbh.inc.php';
                                 <option value="VPRE">VPRE</option>
                             </select>
                         </div>
-                        <label for="offce class=" class="col-sm-2 col-form-label mt-3">3rd Channel</label>
+                        <label for="offce class=" class="col-sm-2 col-form-label mt-3">2nd Channel</label>
                         <div class="col-sm-10" required>
                             <select class="form-control mt-3" name="channel_2" id="office">
                                 <option value="">Select Office</option>
@@ -571,7 +571,7 @@ include 'connection/dbh.inc.php';
                                 <option value="VPRE">VPRE</option>
                             </select>
                         </div>
-                        <label for="offce class=" class="col-sm-2 col-form-label mt-3">2nd Channel</label>
+                        <label for="offce class=" class="col-sm-2 col-form-label mt-3">3rd Channel</label>
                         <div class="col-sm-10" required>
                             <select class="form-control mt-3" name="channel_3" id="office">
                                 <option value="">Select Office</option>

@@ -8,12 +8,12 @@ if (isset($_POST['updaterecord'])) {
     $track_remarks = $_POST['track_remarks'];
     $track_actions = $_POST['track_actions'];
     $track_offices = $_POST['track_offices'];
-    $track_dates = $_POST['track_dates'];
+
 
     // query for updated tracking
 
-    $query = "INSERT INTO track_communication (user_trackingid,track_remarks,track_actions,track_offices,track_dates) 
-    VALUES ('$user_trackingid', '$track_remarks', '$track_actions','$track_offices','$track_dates')";
+    $query = "INSERT INTO track_communication (user_trackingid,track_remarks,track_actions,track_offices) 
+    VALUES ('$user_trackingid', '$track_remarks', '$track_actions','$track_offices')";
 
 
     $result = mysqli_query($conn, $query);

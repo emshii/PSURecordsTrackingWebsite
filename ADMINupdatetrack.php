@@ -262,21 +262,19 @@ include 'header.php';
         </div>
     </div>
 </div>
+
 <!-- SECTION FOR MODAL ADD NEW TRACKING NUMBER -->
-< <section class="container-fluid home-section p-0">
+<section class="container-fluid home-section p-0">
     <div class="container-fluid-md">
         <div class="row justify-content-center">
             <div class="col-12 bg light rounded my-2 py-2">
                 <div class="container-fluid">
                     <h1 mt-2 pl-2 class="text-center pt-2 mb-0 text-dark"> Welcome Admin</h1>
-
-
-
                     <div class=" card container-fluid">
                         <h1 class="text-center text-success mt-3">Update Document/Letters</h1>
                         <div class="card-body">
                             <div class="container-fluid">
-                                <table class="table table-hover table-striped table-border" style="width: 70%;">
+                                <table class="tables table-hover table-striped table-border" style="width: 95%;">
                                     <thead class="bg-dark text-light">
                                         <!-- here was the new tracking general tracking head, that can watch over by the different organization -->
                                         <tr>
@@ -328,8 +326,6 @@ include 'header.php';
                                                 <td><?php echo $row['channel_4']  ?></td>
                                                 <td><?php echo $row['channel_5']  ?></td>
 
-
-
                                                 <td>
                                                     <button type="button" class="btn btn-primary btn-sm updatebtn">
                                                         <span class="material-icons">
@@ -348,39 +344,52 @@ include 'header.php';
 
                             </div>
                         </div>
-                        <div class=" container-fluid card-footer">
-                            <div class="card-body">
+                        <!--below i removed the content of the next table for the update -->
 
-                                <div class="container-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class=" container-fluid card-footer">
+        <!-- <button type=" button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button> -->
 
+    </div>
+    <div class="container-fluid-md">
+        <div class="card container-fluid">
+            <div class="card-body">
 
-                                    <table class="table table-hover table-striped table-border" style="width: 70%;">
-                                        <thead class="bg-dark text-light">
-                                            <tr>
-                                                <!-- here was the new tracking general tracking head, that can watch over by the different organization -->
-
-                                                <th>TrackingID</th>
-                                                <th>Particulars</th>
-                                                <th>Name</th>
-                                                <th>Remarks</th>
-                                                <th>Actions</th>
-                                                <th>Date</th>
-                                                <th>Destination</th>
-                                                <th>Channel 1</th>
-                                                <th>Channel 2</th>
-                                                <th>Channel 3</th>
-                                                <th>Channel 4</th>
-                                                <th>Channel 5</th>
-                                                <th>Update</th>
+                <div class="container-fluid">
 
 
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php
-                                            // watch out sa query table, need mo palitan yung table ng user para doon sa tracking inforamtion
+                    <table class="tables table-hover table-striped table-border" style="width: 95%;">
+                        <thead class="bg-dark text-light">
+                            <tr>
+                                <!-- here was the new tracking general tracking head, that can watch over by the different organization -->
 
-                                            $query = "SELECT users.id,track_communication.user_trackingid, users.user_name,track_communication.track_remarks, users.user_title,users.user_officestarget,track_communication.track_actions,track_communication.track_dates, track_communication.track_offices, users.channel_1, 
+                                <th>TrackingID</th>
+                                <th>Particulars</th>
+                                <th>Name</th>
+                                <th>Remarks</th>
+                                <th>Actions</th>
+                                <th>Date</th>
+                                <th>Destination</th>
+                                <th>Channel 1</th>
+                                <th>Channel 2</th>
+                                <th>Channel 3</th>
+                                <th>Channel 4</th>
+                                <th>Channel 5</th>
+                                <th>Update</th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            // watch out sa query table, need mo palitan yung table ng user para doon sa tracking inforamtion
+
+                            $query = "SELECT users.id,track_communication.user_trackingid, users.user_name,track_communication.track_remarks, users.user_title,users.user_officestarget,track_communication.track_actions,track_communication.track_dates, track_communication.track_offices, users.channel_1, 
                                                 users.channel_2,users.channel_3,users.channel_4,users.channel_5 FROM users
                                                 INNER JOIN track_communication ON  users.user_trackingid = track_communication.user_trackingid WHERE channel_1 = 'cs' OR channel_2 = 'cs' OR channel_3 = 'cs' OR channel_4 = 'cs' OR channel_5 = 'cs' OR user_officestarget = 'cs'
                                              OR channel_1 = 'VPRE' OR channel_2 = 'VPRE' OR channel_3 = 'VPRE' OR channel_4 = 'VPRE' OR channel_5 = 'VPRE' OR user_officestarget = 'VPRE'
@@ -395,211 +404,206 @@ include 'header.php';
                                              OR channel_1 = 'University Board Secretary Office' OR channel_2 = 'University Board Secretary Office' OR channel_3 = 'University Board Secretary Office' OR channel_4 = 'University Board Secretary Office' OR channel_5 = 'University Board Secretary Office' OR user_officestarget = 'University Board Secretary Office'
                                              OR channel_1 = 'HRMO' OR channel_2 = 'HRMO' OR channel_3 = 'HRMO' OR channel_4 = 'HRMO' OR channel_5 = 'HRMO' OR user_officestarget = 'HRMO'
                                              OR channel_1 = 'Office of the President' OR channel_2 = 'Office of the President' OR channel_3 = 'Office of the President' OR channel_4 = 'Office of the President' OR channel_5 = 'Office of the President' OR user_officestarget = 'Office of the President'";
-                                            $results = mysqli_query($conn, $query);
-                                            while ($rows = mysqli_fetch_assoc($results)) {
-                                                $timestamp = $rows['track_dates'];
-                                            ?>
-                                                <?php
-                                                $action = $rows['track_actions'];
-                                                $office = $rows['track_offices'];
-                                                $destination = $rows['user_officestarget']
-                                                // print_r($rows);
-                                                // print_r($rows);
-                                                // echo '<br>' . $action;
-                                                // echo '<br>' . $office;
-                                                ?>
+                            $results = mysqli_query($conn, $query);
+                            while ($rows = mysqli_fetch_assoc($results)) {
+                                $timestamp = $rows['track_dates'];
+                            ?>
+                                <?php
+                                $action = $rows['track_actions'];
+                                $office = $rows['track_offices'];
+                                $destination = $rows['user_officestarget']
+                                // print_r($rows);
+                                // print_r($rows);
+                                // echo '<br>' . $action;
+                                // echo '<br>' . $office;
+                                ?>
 
 
-                                                <?php
-                                                $channel1 = $rows['channel_1'];
-                                                $channel2 = $rows['channel_2'];
-                                                $channel3 = $rows['channel_3'];
-                                                $channel4 = $rows['channel_4'];
-                                                $channel5 = $rows['channel_5'];
-                                                ?>
+                                <?php
+                                $channel1 = $rows['channel_1'];
+                                $channel2 = $rows['channel_2'];
+                                $channel3 = $rows['channel_3'];
+                                $channel4 = $rows['channel_4'];
+                                $channel5 = $rows['channel_5'];
+                                ?>
 
-                                                <tr>
+                                <tr>
 
-                                                    <td><?php echo $rows['user_trackingid']  ?></td>
-                                                    <td><?php echo $rows['user_title'] ?></td>
-                                                    <td><?php echo $rows['user_name'] ?></td>
-                                                    <td><?php echo $rows['track_remarks'] ?></td>
-                                                    <?php if (($channel1 == $office) && ($action == 'Received')) { ?>
+                                    <td><?php echo $rows['user_trackingid']  ?></td>
+                                    <td><?php echo $rows['user_title'] ?></td>
+                                    <td><?php echo $rows['user_name'] ?></td>
+                                    <td><?php echo $rows['track_remarks'] ?></td>
+                                    <?php if (($channel1 == $office) && ($action == 'Received')) { ?>
 
-                                                        <td><?php echo $rows['track_actions'] . ' at ' . $rows['track_offices'] ?></td>
-                                                    <?php } else if (($channel1 == $office) && ($action == 'Forwarded')) { ?>
-                                                        <td><?php echo $rows['track_actions'] . ' to ' . $rows['track_offices'] ?></td>
-                                                    <?php     } else if (($channel1 == $office) && ($action == 'Returned')) { ?>
-                                                        <td><?php echo $rows['track_actions'] . ' to ' . $rows['track_offices'] ?></td>
-                                                    <?php     } else if (($channel1 == $office) && ($action == 'Endorsed')) { ?>
-                                                        <td><?php echo $rows['track_actions'] . ' to ' . $rows['track_offices'] ?></td>
-                                                    <?php     } else if (($channel2 == $office) && ($action == 'Received')) { ?>
-                                                        <td><?php echo $rows['track_actions'] . ' at ' . $rows['track_offices'] ?></td>
-                                                    <?php     } else if (($channel2 == $office) && ($action == 'Forwarded')) { ?>
-                                                        <td><?php echo $rows['track_actions'] . ' to ' . $rows['track_offices'] ?></td>
-                                                    <?php     } else if (($channel2 == $office) && ($action == 'Returned')) { ?>
-                                                        <td><?php echo $rows['track_actions'] . ' to ' . $rows['track_offices'] ?></td>
-                                                    <?php     } else if (($channel2 == $office) && ($action == 'Endorsed')) { ?>
-                                                        <td><?php echo $rows['track_actions'] . ' to ' . $rows['track_offices'] ?></td>
-                                                    <?php     } else if (($channel3 == $office) && ($action == 'Received')) { ?>
-                                                        <td><?php echo $rows['track_actions'] . ' at ' . $rows['track_offices'] ?></td>
-                                                    <?php     } else if (($channel3 == $office) && ($action == 'Forwarded')) { ?>
-                                                        <td><?php echo $rows['track_actions'] . ' to ' . $rows['track_offices'] ?></td>
-                                                    <?php     } else if (($channel3 == $office) && ($action == 'Returned')) { ?>
-                                                        <td><?php echo $rows['track_actions'] . ' to ' . $rows['track_offices'] ?></td>
-                                                    <?php     } else if (($channel3 == $office) && ($action == 'Endorsed')) { ?>
-                                                        <td><?php echo $rows['track_actions'] . ' to ' . $rows['track_offices'] ?></td>
-                                                    <?php     } else if (($channel4 == $office) && ($action == 'Received')) { ?>
-                                                        <td><?php echo $rows['track_actions'] . ' at ' . $rows['track_offices'] ?></td>
-                                                    <?php     } else if (($channel4 == $office) && ($action == 'Forwarded')) { ?>
-                                                        <td><?php echo $rows['track_actions'] . ' to ' . $rows['track_offices'] ?></td>
-                                                    <?php     } else if (($channel4 == $office) && ($action == 'Returned')) { ?>
-                                                        <td><?php echo $rows['track_actions'] . ' to ' . $rows['track_offices'] ?></td>
-                                                    <?php     } else if (($channel4 == $office) && ($action == 'Endorsed')) { ?>
-                                                        <td><?php echo $rows['track_actions'] . ' to ' . $rows['track_offices'] ?></td>
-                                                    <?php     } else if (($channel5 == $office) && ($action == 'Received')) { ?>
-                                                        <td><?php echo $rows['track_actions'] . ' at ' . $rows['track_offices'] ?></td>
-                                                    <?php     } else if (($channel5 == $office) && ($action == 'Forwarded')) { ?>
-                                                        <td><?php echo $rows['track_actions'] . ' to ' . $rows['track_offices'] ?></td>
-                                                    <?php     } else if (($channel5 == $office) && ($action == 'Returned')) { ?>
-                                                        <td><?php echo $rows['track_actions'] . ' to ' . $rows['track_offices'] ?></td>
-                                                    <?php     } else if (($channel5 == $office) && ($action == 'Endorsed')) { ?>
-                                                        <td><?php echo $rows['track_actions'] . ' to ' . $rows['track_offices'] ?></td>
-                                                    <?php     } else if (($destination == $office) && ($action == 'Received')) { ?>
-                                                        <td><?php echo $rows['track_actions'] . ' at ' . $rows['track_offices'] ?></td>
-                                                    <?php     } else if (($destination == $office) && ($action == 'Forwarded')) { ?>
-                                                        <td><?php echo $rows['track_actions'] . ' to ' . $rows['track_offices'] ?></td>
-                                                    <?php     } else if (($destination == $office) && ($action == 'Returned')) { ?>
-                                                        <td><?php echo $rows['track_actions'] . ' to ' . $rows['track_offices'] ?></td>
-                                                    <?php     } else if (($destination == $office) && ($action == 'Endorsed')) { ?>
-                                                        <td><?php echo $rows['track_actions'] . ' to ' . $rows['track_offices'] ?></td>
-                                                    <?php     } ?>
-                                                    <td> <?php echo date('M d, Y, g:ia', strtotime($timestamp)); ?> </td>
-
-
-                                                    <?php if (($destination == $office) && ($action == 'Received')) { ?>
-
-                                                        <td bgcolor="#FFFF00"><?php echo $rows['user_officestarget'] ?></td>
-                                                    <?php } else if (($destination == $office) && ($action == 'Forwarded')) { ?>
-                                                        <td bgcolor="399CC66"><?php echo $rows['user_officestarget'] ?></td>
-                                                    <?php     } else if (($destination == $office) && ($action == 'Returned')) { ?>
-                                                        <td bgcolor="#FFC0CB"><?php echo $rows['user_officestarget'] ?></td>
-                                                    <?php     } else if (($destination == $office) && ($action == 'Returned')) { ?>
-                                                        <td bgcolor="##FFA500"><?php echo $rows['user_officestarget'] ?></td>
-                                                    <?php     } else { ?>
-                                                        <td><?php echo $rows['user_officestarget'] ?></td>
-                                                    <?php   } ?>
+                                        <td><?php echo $rows['track_actions'] . ' at ' . $rows['track_offices'] ?></td>
+                                    <?php } else if (($channel1 == $office) && ($action == 'Forwarded')) { ?>
+                                        <td><?php echo $rows['track_actions'] . ' to ' . $rows['track_offices'] ?></td>
+                                    <?php     } else if (($channel1 == $office) && ($action == 'Returned')) { ?>
+                                        <td><?php echo $rows['track_actions'] . ' to ' . $rows['track_offices'] ?></td>
+                                    <?php     } else if (($channel1 == $office) && ($action == 'Endorsed')) { ?>
+                                        <td><?php echo $rows['track_actions'] . ' to ' . $rows['track_offices'] ?></td>
+                                    <?php     } else if (($channel2 == $office) && ($action == 'Received')) { ?>
+                                        <td><?php echo $rows['track_actions'] . ' at ' . $rows['track_offices'] ?></td>
+                                    <?php     } else if (($channel2 == $office) && ($action == 'Forwarded')) { ?>
+                                        <td><?php echo $rows['track_actions'] . ' to ' . $rows['track_offices'] ?></td>
+                                    <?php     } else if (($channel2 == $office) && ($action == 'Returned')) { ?>
+                                        <td><?php echo $rows['track_actions'] . ' to ' . $rows['track_offices'] ?></td>
+                                    <?php     } else if (($channel2 == $office) && ($action == 'Endorsed')) { ?>
+                                        <td><?php echo $rows['track_actions'] . ' to ' . $rows['track_offices'] ?></td>
+                                    <?php     } else if (($channel3 == $office) && ($action == 'Received')) { ?>
+                                        <td><?php echo $rows['track_actions'] . ' at ' . $rows['track_offices'] ?></td>
+                                    <?php     } else if (($channel3 == $office) && ($action == 'Forwarded')) { ?>
+                                        <td><?php echo $rows['track_actions'] . ' to ' . $rows['track_offices'] ?></td>
+                                    <?php     } else if (($channel3 == $office) && ($action == 'Returned')) { ?>
+                                        <td><?php echo $rows['track_actions'] . ' to ' . $rows['track_offices'] ?></td>
+                                    <?php     } else if (($channel3 == $office) && ($action == 'Endorsed')) { ?>
+                                        <td><?php echo $rows['track_actions'] . ' to ' . $rows['track_offices'] ?></td>
+                                    <?php     } else if (($channel4 == $office) && ($action == 'Received')) { ?>
+                                        <td><?php echo $rows['track_actions'] . ' at ' . $rows['track_offices'] ?></td>
+                                    <?php     } else if (($channel4 == $office) && ($action == 'Forwarded')) { ?>
+                                        <td><?php echo $rows['track_actions'] . ' to ' . $rows['track_offices'] ?></td>
+                                    <?php     } else if (($channel4 == $office) && ($action == 'Returned')) { ?>
+                                        <td><?php echo $rows['track_actions'] . ' to ' . $rows['track_offices'] ?></td>
+                                    <?php     } else if (($channel4 == $office) && ($action == 'Endorsed')) { ?>
+                                        <td><?php echo $rows['track_actions'] . ' to ' . $rows['track_offices'] ?></td>
+                                    <?php     } else if (($channel5 == $office) && ($action == 'Received')) { ?>
+                                        <td><?php echo $rows['track_actions'] . ' at ' . $rows['track_offices'] ?></td>
+                                    <?php     } else if (($channel5 == $office) && ($action == 'Forwarded')) { ?>
+                                        <td><?php echo $rows['track_actions'] . ' to ' . $rows['track_offices'] ?></td>
+                                    <?php     } else if (($channel5 == $office) && ($action == 'Returned')) { ?>
+                                        <td><?php echo $rows['track_actions'] . ' to ' . $rows['track_offices'] ?></td>
+                                    <?php     } else if (($channel5 == $office) && ($action == 'Endorsed')) { ?>
+                                        <td><?php echo $rows['track_actions'] . ' to ' . $rows['track_offices'] ?></td>
+                                    <?php     } else if (($destination == $office) && ($action == 'Received')) { ?>
+                                        <td><?php echo $rows['track_actions'] . ' at ' . $rows['track_offices'] ?></td>
+                                    <?php     } else if (($destination == $office) && ($action == 'Forwarded')) { ?>
+                                        <td><?php echo $rows['track_actions'] . ' to ' . $rows['track_offices'] ?></td>
+                                    <?php     } else if (($destination == $office) && ($action == 'Returned')) { ?>
+                                        <td><?php echo $rows['track_actions'] . ' to ' . $rows['track_offices'] ?></td>
+                                    <?php     } else if (($destination == $office) && ($action == 'Endorsed')) { ?>
+                                        <td><?php echo $rows['track_actions'] . ' to ' . $rows['track_offices'] ?></td>
+                                    <?php     } ?>
+                                    <td> <?php echo date('M d, Y, g:ia', strtotime($timestamp)); ?> </td>
 
 
-                                                    <!-- Channel 1-->
-                                                    <?php if (($channel1 == $office) && ($action == 'Received')) { ?>
+                                    <?php if (($destination == $office) && ($action == 'Received')) { ?>
 
-                                                        <td bgcolor="#FFFF00"><?php echo $rows['channel_1'] ?></td>
-                                                    <?php } else if (($channel1 == $office) && ($action == 'Forwarded')) { ?>
-                                                        <td bgcolor="399CC66"><?php echo $rows['channel_1'] ?></td>
-                                                    <?php     } else if (($channel1 == $office) && ($action == 'Returned')) { ?>
-                                                        <td bgcolor="#FFC0CB"><?php echo $rows['user_officestarget'] ?></td>
-                                                    <?php     } else if (($channel1 == $office) && ($action == 'Endorsed')) { ?>
-                                                        <td bgcolor="##FFA500"><?php echo $rows['user_officestarget'] ?></td>
-                                                    <?php     } else { ?>
-                                                        <td><?php echo $rows['channel_1'] ?></td>
-                                                    <?php   } ?>
-
-                                                    <!-- Channel 2-->
-                                                    <?php if (($channel2 == $office) && ($action == 'Received')) { ?>
-
-                                                        <td bgcolor="#FFFF00"><?php echo $rows['channel_2'] ?></td>
-
-                                                    <?php } else if (($channel2 == $office) && ($action == 'Forwarded')) { ?>
-                                                        <td bgcolor="399CC66"><?php echo $rows['channel_2'] ?></td>
-                                                    <?php     } else if (($channel2 == $office) && ($action == 'Returned')) { ?>
-                                                        <td bgcolor="#FFC0CB"><?php echo $rows['user_officestarget'] ?></td>
-                                                    <?php     } else if (($channel2 == $office) && ($action == 'Endorsed')) { ?>
-                                                        <td bgcolor="##FFA500"><?php echo $rows['user_officestarget'] ?></td>
-                                                    <?php     } else { ?>
-                                                        <td><?php echo $rows['channel_2'] ?></td>
-                                                    <?php   } ?>
-
-                                                    <!-- Channel 3-->
-                                                    <?php if (($channel3 == $office) && ($action == 'Received')) { ?>
-
-                                                        <td bgcolor="#FFFF00"><?php echo $rows['channel_3'] ?></td>
-
-                                                    <?php } else if (($channel3 == $office) && ($action == 'Forwarded')) { ?>
-                                                        <td bgcolor="399CC66"><?php echo $rows['channel_3'] ?></td>
-                                                    <?php     } else if (($channel3 == $office) && ($action == 'Returned')) { ?>
-                                                        <td bgcolor="#FFC0CB"><?php echo $rows['user_officestarget'] ?></td>
-                                                    <?php     } else if (($channel3 == $office) && ($action == 'Endorsed')) { ?>
-                                                        <td bgcolor="##FFA500"><?php echo $rows['user_officestarget'] ?></td>
-                                                    <?php     } else { ?>
-                                                        <td><?php echo $rows['channel_3'] ?></td>
-                                                    <?php   } ?>
-
-                                                    <!-- Channel 4-->
-                                                    <?php if (($channel4 == $office) && ($action == 'Received')) { ?>
-
-                                                        <td bgcolor="#FFFF00"><?php echo $rows['channel_4'] ?></td>
-
-                                                    <?php } else if (($channel4 == $office) && ($action == 'Forwarded')) { ?>
-                                                        <td bgcolor="399CC66"><?php echo $rows['channel_4'] ?></td>
-                                                    <?php     } else if (($channel4 == $office) && ($action == 'Returned')) { ?>
-                                                        <td bgcolor="#FFC0CB"><?php echo $rows['user_officestarget'] ?></td>
-                                                    <?php     } else if (($channel4 == $office) && ($action == 'Endorsed')) { ?>
-                                                        <td bgcolor="##FFA500"><?php echo $rows['user_officestarget'] ?></td>
-                                                    <?php     } else { ?>
-                                                        <td><?php echo $rows['channel_4'] ?></td>
-                                                    <?php   } ?>
-
-                                                    <!-- Channel 5-->
-                                                    <?php if (($channel5 == $office) && ($action == 'Received')) { ?>
-
-                                                        <td bgcolor="#FFFF00"><?php echo $rows['channel_5'] ?></td>
-
-                                                    <?php } else if (($channel5 == $office) && ($action == 'Forwarded')) { ?>
-                                                        <td bgcolor="399CC66"><?php echo $rows['channel_5'] ?></td>
-                                                    <?php     } else if (($channel5 == $office) && ($action == 'Returned')) { ?>
-                                                        <td bgcolor="#FFC0CB"><?php echo $rows['user_officestarget'] ?></td>
-                                                    <?php     } else if (($channel5 == $office) && ($action == 'Endorsed')) { ?>
-                                                        <td bgcolor="##FFA500"><?php echo $rows['user_officestarget'] ?></td>
-                                                    <?php     } else { ?>
-                                                        <td><?php echo $rows['channel_5'] ?></td>
-                                                    <?php   } ?>
+                                        <td bgcolor="#FFFF00"><?php echo $rows['user_officestarget'] ?></td>
+                                    <?php } else if (($destination == $office) && ($action == 'Forwarded')) { ?>
+                                        <td bgcolor="399CC66"><?php echo $rows['user_officestarget'] ?></td>
+                                    <?php     } else if (($destination == $office) && ($action == 'Returned')) { ?>
+                                        <td bgcolor="#FFC0CB"><?php echo $rows['user_officestarget'] ?></td>
+                                    <?php     } else if (($destination == $office) && ($action == 'Returned')) { ?>
+                                        <td bgcolor="##FFA500"><?php echo $rows['user_officestarget'] ?></td>
+                                    <?php     } else { ?>
+                                        <td><?php echo $rows['user_officestarget'] ?></td>
+                                    <?php   } ?>
 
 
-                                                    <td>
-                                                        <button type="button" class="btn btn-primary btn-sm updatebtn">
-                                                            <span class="material-icons">
-                                                                edit_note
-                                                            </span>
-                                                        </button>
-                                                    </td>
+                                    <!-- Channel 1-->
+                                    <?php if (($channel1 == $office) && ($action == 'Received')) { ?>
 
-                                                </tr>
+                                        <td bgcolor="#FFFF00"><?php echo $rows['channel_1'] ?></td>
+                                    <?php } else if (($channel1 == $office) && ($action == 'Forwarded')) { ?>
+                                        <td bgcolor="399CC66"><?php echo $rows['channel_1'] ?></td>
+                                    <?php     } else if (($channel1 == $office) && ($action == 'Returned')) { ?>
+                                        <td bgcolor="#FFC0CB"><?php echo $rows['user_officestarget'] ?></td>
+                                    <?php     } else if (($channel1 == $office) && ($action == 'Endorsed')) { ?>
+                                        <td bgcolor="##FFA500"><?php echo $rows['user_officestarget'] ?></td>
+                                    <?php     } else { ?>
+                                        <td><?php echo $rows['channel_1'] ?></td>
+                                    <?php   } ?>
 
-                                            <?php } ?>
+                                    <!-- Channel 2-->
+                                    <?php if (($channel2 == $office) && ($action == 'Received')) { ?>
+
+                                        <td bgcolor="#FFFF00"><?php echo $rows['channel_2'] ?></td>
+
+                                    <?php } else if (($channel2 == $office) && ($action == 'Forwarded')) { ?>
+                                        <td bgcolor="399CC66"><?php echo $rows['channel_2'] ?></td>
+                                    <?php     } else if (($channel2 == $office) && ($action == 'Returned')) { ?>
+                                        <td bgcolor="#FFC0CB"><?php echo $rows['user_officestarget'] ?></td>
+                                    <?php     } else if (($channel2 == $office) && ($action == 'Endorsed')) { ?>
+                                        <td bgcolor="##FFA500"><?php echo $rows['user_officestarget'] ?></td>
+                                    <?php     } else { ?>
+                                        <td><?php echo $rows['channel_2'] ?></td>
+                                    <?php   } ?>
+
+                                    <!-- Channel 3-->
+                                    <?php if (($channel3 == $office) && ($action == 'Received')) { ?>
+
+                                        <td bgcolor="#FFFF00"><?php echo $rows['channel_3'] ?></td>
+
+                                    <?php } else if (($channel3 == $office) && ($action == 'Forwarded')) { ?>
+                                        <td bgcolor="399CC66"><?php echo $rows['channel_3'] ?></td>
+                                    <?php     } else if (($channel3 == $office) && ($action == 'Returned')) { ?>
+                                        <td bgcolor="#FFC0CB"><?php echo $rows['user_officestarget'] ?></td>
+                                    <?php     } else if (($channel3 == $office) && ($action == 'Endorsed')) { ?>
+                                        <td bgcolor="##FFA500"><?php echo $rows['user_officestarget'] ?></td>
+                                    <?php     } else { ?>
+                                        <td><?php echo $rows['channel_3'] ?></td>
+                                    <?php   } ?>
+
+                                    <!-- Channel 4-->
+                                    <?php if (($channel4 == $office) && ($action == 'Received')) { ?>
+
+                                        <td bgcolor="#FFFF00"><?php echo $rows['channel_4'] ?></td>
+
+                                    <?php } else if (($channel4 == $office) && ($action == 'Forwarded')) { ?>
+                                        <td bgcolor="399CC66"><?php echo $rows['channel_4'] ?></td>
+                                    <?php     } else if (($channel4 == $office) && ($action == 'Returned')) { ?>
+                                        <td bgcolor="#FFC0CB"><?php echo $rows['user_officestarget'] ?></td>
+                                    <?php     } else if (($channel4 == $office) && ($action == 'Endorsed')) { ?>
+                                        <td bgcolor="##FFA500"><?php echo $rows['user_officestarget'] ?></td>
+                                    <?php     } else { ?>
+                                        <td><?php echo $rows['channel_4'] ?></td>
+                                    <?php   } ?>
+
+                                    <!-- Channel 5-->
+                                    <?php if (($channel5 == $office) && ($action == 'Received')) { ?>
+
+                                        <td bgcolor="#FFFF00"><?php echo $rows['channel_5'] ?></td>
+
+                                    <?php } else if (($channel5 == $office) && ($action == 'Forwarded')) { ?>
+                                        <td bgcolor="399CC66"><?php echo $rows['channel_5'] ?></td>
+                                    <?php     } else if (($channel5 == $office) && ($action == 'Returned')) { ?>
+                                        <td bgcolor="#FFC0CB"><?php echo $rows['user_officestarget'] ?></td>
+                                    <?php     } else if (($channel5 == $office) && ($action == 'Endorsed')) { ?>
+                                        <td bgcolor="##FFA500"><?php echo $rows['user_officestarget'] ?></td>
+                                    <?php     } else { ?>
+                                        <td><?php echo $rows['channel_5'] ?></td>
+                                    <?php   } ?>
 
 
-                                        </tbody>
+                                    <td>
+                                        <button type="button" class="btn btn-primary btn-sm updatebtn">
+                                            <span class="material-icons">
+                                                edit_note
+                                            </span>
+                                        </button>
+                                    </td>
 
-                                    </table>
+                                </tr>
+
+                            <?php } ?>
 
 
-                                </div>
-                            </div>
+                        </tbody>
 
-                            <div class=" container-fluid card-footer">
-                                <!-- <button type=" button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button> -->
+                    </table>
 
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
-        </section>
+        <div class=" container-fluid card-footer">
+            <!-- <button type=" button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button> -->
 
-        <?php
-        include './include/footer.php';
+        </div>
+</section>
 
-        ?>
+<?php
+include './include/footer.php';
+
+?>

@@ -277,7 +277,7 @@ include 'header1.php';
                             <div class="container-fluid">
 
 
-                                <table class="table table-hover table-striped table-border" style="width: 70%;">
+                                <table class="tables table-hover table-striped table-border" style="width: 70%;">
                                     <thead class="bg-dark text-light">
                                         <tr>
                                             <!-- here was the new tracking general tracking head, that can watch over by the different organization -->

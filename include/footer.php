@@ -125,6 +125,12 @@
         $('.table').DataTable();
     });
 </script>
+<!-- this is the script supported by jquery, datatable -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.tables').DataTable();
+    });
+</script>
 <!-- this is the sweeticon button for every action -->
 <?php
 if (isset($_SESSION['status']) && $_SESSION['status']) {
